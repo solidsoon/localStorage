@@ -1,17 +1,22 @@
 const logUser = document.getElementById("log-usuario")
-const password = document.getElementById("log-senha")
+const passwordUser = document.getElementById("log-senha")
 const confirmPassword = document.getElementById("log-confirmar-senha")
 const btnRegister = document.getElementById("SignInBtn")
 
 btnRegister.addEventListener("click", () =>  {
 
       const user = logUser.value
-      const passwordLocate = password.value
+      const password = passwordUser.value
       const passwordConfirm = confirmPassword.value
-
-      if (passwordLocate == passwordConfirm && user.trim() != "") {
-            alert("Registro concluído")
-      }else{
-            alert("Senha não confere ou campo usuário vazio")
+      
+      
+      
+      if (password === passwordConfirm && user != "") {
+            localStorage.setItem("user", user);
+            localStorage.setItem("password", password);
+            alert(`Cadastro concluído`)
+      }
+      else{
+            alert("Confira os campos de usúario e senha")
       }
 })
